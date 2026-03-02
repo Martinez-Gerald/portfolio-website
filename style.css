@@ -1,0 +1,384 @@
+/* 1. Import Montserrat Font */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap'); /* [cite: 20] */
+
+/* 2. Color Palette & CSS Variables */
+:root {
+    --deep-navy: #0B192C; /* [cite: 20] */
+    --electric-blue: #00E5FF; /* [cite: 20] */
+    --gray: #A0AAB2; /* [cite: 20] */
+    --white: #F8F9FA;
+    --dark-text: #2C3E50; 
+}
+
+/* 3. Global Styles with Cyber Dot Grid */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white); 
+    color: var(--dark-text); 
+    display: flex;
+    justify-content: center;
+    
+    /* Faint cyber dot grid */
+    background-image: radial-gradient(rgba(11, 25, 44, 0.1) 1.5px, transparent 1.5px);
+    background-size: 35px 35px;
+    
+    position: relative;
+    overflow-x: hidden; 
+    z-index: 0;
+}
+
+/* Top Right Electric Blue Glow */
+body::before {
+    content: '';
+    position: absolute;
+    top: -150px;
+    right: -100px;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(0, 229, 255, 0.08) 0%, rgba(248, 249, 250, 0) 70%);
+    z-index: -1; 
+    pointer-events: none; 
+}
+
+/* Bottom Left Deep Navy Glow */
+body::after {
+    content: '';
+    position: absolute;
+    bottom: 50px;
+    left: -150px;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(11, 25, 44, 0.06) 0%, rgba(248, 249, 250, 0) 70%);
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* 4. Main Container - Pushed higher up */
+.homepage-container {
+    max-width: 1400px; 
+    width: 95%; 
+    padding: 30px 20px 40px 20px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+}
+
+/* 5. Hero Section for Side-by-Side Layout - Aligned Top */
+.hero-section {
+    display: flex;
+    flex-direction: row; 
+    align-items: flex-start; 
+    justify-content: space-between;
+    gap: 40px;
+    margin-bottom: 40px; 
+}
+
+/* The dark strip behind the text */
+.intro-text-strip {
+    background-color: var(--deep-navy);
+    padding: 50px 30px; 
+    border-radius: 12px;
+    flex: 1.2; 
+    border-left: 6px solid var(--electric-blue);
+    box-shadow: 0 10px 30px rgba(11, 25, 44, 0.2);
+}
+
+.signature-name {
+    color: var(--electric-blue);
+    font-size: 3.5rem;
+    margin: 0 0 15px 0; 
+    letter-spacing: 2px;
+}
+
+.hook {
+    color: var(--white);
+    font-size: 1.2rem;
+    font-weight: 400;
+    line-height: 1.6;
+    margin: 0;
+    min-height: 80px; 
+}
+
+/* Blinking cursor for the typing effect */
+.hook::after {
+    content: '|';
+    animation: blink 1s infinite;
+    color: var(--electric-blue);
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0; }
+}
+
+/* 6. Profile Container (Right Side) - Expanded to 450px */
+.profile-container {
+    position: relative;
+    width: 350px; /* Reduced the width to make it a vertical rectangle */
+    height: 450px;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 3px solid var(--deep-navy); 
+    cursor: pointer;
+    background-color: var(--deep-navy);
+    flex-shrink: 0; 
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.profile-pic {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    /* This tells the browser to crop from the bottom, keeping the top center (your face) in frame */
+    object-position: top center; 
+    transition: opacity 0.4s ease;
+}
+
+/* Hover Narrative */
+.hover-narrative {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(11, 25, 44, 0.95);
+    color: var(--white);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 30px; 
+    box-sizing: border-box;
+    opacity: 0;
+    transition: opacity 0.4s ease-in-out;
+    text-align: left;
+    font-size: 0.95rem; 
+    line-height: 1.6;
+    overflow-y: auto; 
+}
+
+.profile-container:hover .profile-pic { opacity: 0.05; }
+.profile-container:hover .hover-narrative { opacity: 1; }
+
+/* 7. Tech Stack Scrolling Marquee */
+.tech-marquee {
+    width: 100%;
+    overflow: hidden;
+    padding: 10px 0;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+    mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 10%, black 90%, transparent);
+}
+
+.marquee-track {
+    display: flex;
+    gap: 40px;
+    width: max-content;
+    animation: scrollMarquee 20s linear infinite;
+}
+
+.tech-item {
+    color: var(--gray);
+    font-weight: 600;
+    font-size: 1.1rem;
+    padding: 10px 25px;
+    border: 2px solid var(--gray);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+    background-color: var(--white);
+    transition: color 0.3s ease, border-color 0.3s ease, transform 0.3s ease;
+}
+
+.marquee-track:hover { animation-play-state: paused; }
+
+.tech-item:hover {
+    color: var(--electric-blue);
+    border-color: var(--electric-blue);
+    transform: scale(1.05);
+    cursor: default;
+}
+
+@keyframes scrollMarquee {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(calc(-50% - 20px)); } 
+}
+
+/* 8. Navigation Section */
+.navigation-section {
+    text-align: center;
+    margin-top: auto; 
+}
+
+.cta-text {
+    margin-bottom: 50px;
+    font-size: 1.1rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    color: var(--deep-navy); 
+    font-weight: 600;
+}
+
+/* 9. 3D Animated Folders */
+.folder-container {
+    display: flex;
+    justify-content: center;
+    gap: 60px;
+    flex-wrap: wrap;
+    perspective: 1000px; 
+}
+
+.folder {
+    width: 140px;
+    height: 100px;
+    position: relative;
+    cursor: pointer;
+}
+
+/* The back of the folder with the tab */
+.folder-back {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--deep-navy);
+    border-radius: 0 8px 8px 8px;
+    border: 2px solid var(--gray);
+    box-sizing: border-box;
+}
+
+.folder-back::before {
+    content: '';
+    position: absolute;
+    top: -18px;
+    left: -2px;
+    width: 50px;
+    height: 18px;
+    background-color: var(--deep-navy);
+    border-radius: 8px 8px 0 0;
+    border: 2px solid var(--gray);
+    border-bottom: none;
+}
+
+/* The physical file/paper inside */
+.folder-paper {
+    position: absolute;
+    bottom: 5px;
+    left: 5px;
+    width: 130px;
+    height: 90px;
+    background-color: var(--white);
+    border-radius: 4px;
+    display: flex;
+    align-items: flex-start; /* Changed from 'center' to 'flex-start' */
+    justify-content: center;
+    padding-top: 12px; /* Adds space so the text isn't hitting the absolute top edge */
+    box-sizing: border-box; /* Ensures the padding doesn't break the width/height */
+    z-index: 1; 
+    transition: transform 0.4s ease, opacity 0.4s ease;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.folder-label {
+    color: var(--deep-navy);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* The front cover of the folder */
+.folder-front {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80%; 
+    background-color: var(--deep-navy);
+    border-radius: 8px;
+    z-index: 2; 
+    transform-origin: bottom; 
+    transition: transform 0.4s ease, background-color 0.4s ease, border-color 0.4s ease;
+    border: 2px solid var(--gray);
+    box-sizing: border-box;
+}
+
+/* Hover: Open the folder and peek the file */
+.folder:hover .folder-front {
+    transform: rotateX(-35deg); 
+    background-color: var(--electric-blue);
+    border-color: var(--electric-blue);
+}
+
+.folder:hover .folder-paper {
+    transform: translateY(-40px);
+}
+
+/* Click Animation (Triggered by JS) */
+.folder.extract-file .folder-front {
+    transform: rotateX(-50deg); 
+}
+
+.folder.extract-file .folder-paper {
+    transform: translateY(-150px); 
+    opacity: 0; 
+    transition: transform 0.6s ease, opacity 0.4s ease 0.2s;
+}
+
+/* 10. LinkedIn Button & Links */
+.linkedin-btn {
+    display: inline-block;
+    margin-top: 30px;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--electric-blue);
+    text-decoration: none;
+    border: 2px solid var(--electric-blue);
+    border-radius: 6px;
+    background-color: transparent;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.linkedin-btn:hover {
+    background-color: var(--electric-blue);
+    color: var(--deep-navy);
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.4);
+    transform: translateY(-2px); /* Lifts the button slightly on hover */
+}
+
+/* Styling the inline link at the bottom of the page */
+.inline-link {
+    color: var(--electric-blue);
+    text-decoration: none;
+    font-weight: 700;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.inline-link:hover {
+    color: var(--deep-navy);
+}
+
+/* Adds a neat underline effect to the inline link */
+.inline-link::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--deep-navy);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.inline-link:hover::after {
+    transform: scaleX(1);
+}

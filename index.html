@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerald Martinez | Cyber Professional Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <main class="homepage-container">
+        
+        <section class="hero-section">
+            
+            <div class="intro-text-strip">
+                <h1 class="signature-name">Gerald Martinez</h1> <h2 class="hook" id="typewriter-hook"></h2>
+                <a href="https://www.linkedin.com/in/gerald-martinez/" target="_blank" rel="noopener noreferrer" class="linkedin-btn">
+                    Connect on LinkedIn 
+                </a>
+            </div>
+
+            <div class="profile-container">
+                <img src="assets/headshot.jpg" alt="Professional Headshot" class="profile-pic"> <div class="hover-narrative">
+                    <p>As an Information Technology student at Florida State University, I am a dedicated problem-solver specializing in cloud infrastructure and network defense. I leverage my analytical mindset to simulate real-world cyberattacks, ensuring that digital assets remain secure and resilient.</p> 
+                    <p>Having managed high-volume operations as a Team Lead, I bring a collaborative and proactive approach to every technical challenge I face. Whether I am configuring AWS environments or auditing network traffic, my goal is to bridge the gap between complex IT needs and streamlined, safe solutions.</p> 
+                </div>
+            </div>
+            
+        </section>
+
+        <div class="tech-marquee">
+            <div class="marquee-track">
+                <div class="tech-item">AWS</div> <div class="tech-item">Python</div> <div class="tech-item">Kali Linux</div> <div class="tech-item">CompTIA Security+</div> <div class="tech-item">MySQL</div>
+                <div class="tech-item">Git</div>
+                
+                <div class="tech-item">AWS</div>
+                <div class="tech-item">Python</div>
+                <div class="tech-item">Kali Linux</div>
+                <div class="tech-item">CompTIA Security+</div>
+                <div class="tech-item">MySQL</div>
+                <div class="tech-item">Git</div>
+            </div>
+        </div>
+
+        <section class="navigation-section">
+            <p class="cta-text">
+                Explore my technical projects, experience, and skills below, or 
+                <a href="https://www.linkedin.com/in/gerald-martinez/" target="_blank" rel="noopener noreferrer" class="inline-link">
+                    connect with me on LinkedIn
+                </a> 
+                to discuss how I can strengthen your security operations.
+            </p>
+            <div class="folder-container">
+                <div class="folder" onclick="pullFile(this, 'skills.html')">
+                    <div class="folder-back"></div>
+                    <div class="folder-paper">
+                        <span class="folder-label">Skills</span> </div>
+                    <div class="folder-front"></div>
+                </div>
+                
+                <div class="folder" onclick="pullFile(this, 'projects.html')">
+                    <div class="folder-back"></div>
+                    <div class="folder-paper">
+                        <span class="folder-label">Projects</span> </div>
+                    <div class="folder-front"></div>
+                </div>
+                
+                <div class="folder" onclick="pullFile(this, 'experience.html')">
+                    <div class="folder-back"></div>
+                    <div class="folder-paper">
+                        <span class="folder-label">Experience</span> </div>
+                    <div class="folder-front"></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

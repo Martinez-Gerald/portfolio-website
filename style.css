@@ -382,3 +382,269 @@ body::after {
 .inline-link:hover::after {
     transform: scaleX(1);
 }
+
+/* 11. Secondary Pages Layout (Experience, Projects, Skills) */
+.page-container {
+    max-width: 1200px;
+    width: 95%;
+    margin: 0 auto;
+    padding: 80px 20px 60px 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1; /* Ensures content stays above background glows */
+}
+
+/* Top Navigation */
+.top-nav {
+    position: absolute;
+    top: 30px;
+    left: 40px;
+    z-index: 10;
+}
+
+.back-link {
+    color: var(--deep-navy);
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 1.1rem;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.back-link:hover {
+    color: var(--electric-blue);
+    transform: translateX(-5px); /* Slides slightly left on hover */
+}
+
+/* Section Headers */
+.section-header {
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+.section-title {
+    color: var(--deep-navy);
+    font-size: 3rem;
+    margin: 0 0 10px 0;
+    letter-spacing: 2px;
+}
+
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background-color: var(--electric-blue);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* 12. Experience Cards */
+.experience-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 40px; /* Space between the cards */
+}
+
+.exp-card {
+    background-color: var(--deep-navy);
+    border: 2px solid var(--electric-blue);
+    border-radius: 12px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(11, 25, 44, 0.15);
+    color: var(--white);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.exp-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 45px rgba(0, 229, 255, 0.15);
+}
+
+.exp-header {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    border-bottom: 1px solid rgba(248, 249, 250, 0.1);
+    padding-bottom: 25px;
+    margin-bottom: 25px;
+}
+
+.exp-logo-placeholder {
+    width: 70px;
+    height: 70px;
+    background-color: var(--gray);
+    color: var(--deep-navy);
+    font-weight: 700;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    border: 2px solid var(--electric-blue);
+}
+
+.job-title {
+    color: var(--electric-blue);
+    margin: 0 0 5px 0;
+    font-size: 1.8rem;
+}
+
+.company-name {
+    color: var(--white);
+    margin: 0 0 5px 0;
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+
+.job-dates {
+    color: var(--gray);
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+/* Internal Card Layout */
+.exp-body p {
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: var(--gray);
+}
+
+.exp-body strong {
+    color: var(--white);
+}
+
+.exp-metrics {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.metric-box {
+    background-color: rgba(248, 249, 250, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    border-left: 3px solid var(--electric-blue);
+}
+
+.metric-box h4, .takeaways h4, .value-prop h4 {
+    color: var(--electric-blue);
+    margin: 0 0 10px 0;
+    font-size: 1.1rem;
+}
+
+.takeaways ul {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 25px;
+}
+
+.takeaways li {
+    margin-bottom: 10px;
+}
+
+.value-prop {
+    background-color: rgba(0, 229, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px dashed var(--electric-blue);
+}
+
+/* 13. Portfolio Grid & Cards */
+.portfolio-grid {
+    display: grid;
+    /* Grid automatically adjusts from 1 column on mobile to 2 or 3 on large screens */
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 40px;
+}
+
+.portfolio-card {
+    background-color: var(--deep-navy);
+    border: 2px solid var(--electric-blue);
+    border-radius: 12px;
+    overflow: hidden; 
+    text-decoration: none; 
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 45px rgba(0, 229, 255, 0.2);
+    cursor: pointer;
+}
+
+.portfolio-image-container {
+    width: 100%;
+    height: 220px;
+    background-color: rgba(248, 249, 250, 0.05); 
+    overflow: hidden;
+    border-bottom: 2px solid var(--electric-blue);
+}
+
+.portfolio-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.portfolio-card:hover .portfolio-img {
+    transform: scale(1.08); 
+}
+
+.portfolio-info {
+    padding: 35px 30px;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; 
+}
+
+.portfolio-name {
+    color: var(--electric-blue);
+    font-size: 1.6rem;
+    margin: 0 0 10px 0;
+}
+
+.portfolio-desc {
+    color: var(--white);
+    font-size: 1.05rem;
+    line-height: 1.6;
+    margin: 0 0 20px 0;
+    font-weight: 600;
+}
+
+/* Specific styling for the Rubric Details */
+.rubric-details {
+    color: var(--gray);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 30px;
+    flex-grow: 1; /* Pushes tags to the absolute bottom */
+}
+
+.rubric-details p {
+    margin: 0 0 12px 0;
+}
+
+.rubric-details strong {
+    color: var(--electric-blue);
+}
+
+.tech-stack-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    border-top: 1px solid rgba(248, 249, 250, 0.1);
+    padding-top: 20px;
+}
+
+.tech-stack-tags span {
+    background-color: rgba(0, 229, 255, 0.08);
+    color: var(--electric-blue);
+    padding: 6px 14px;
+    border-radius: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}

@@ -43,3 +43,4 @@ function pullFile(folderElement, destinationUrl) {
         
     }, 600);
 }
+

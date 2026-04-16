@@ -811,3 +811,140 @@ body::after {
     0%, 100% { opacity: 0.5; }
     50% { opacity: 1; }
 }
+
+/* 15. Contact Page */
+.contact-layout {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 60px;
+    margin-top: 20px;
+}
+
+.contact-info-section {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-form-section {
+    flex: 1.2;
+    min-width: 300px;
+}
+
+.contact-desc {
+    color: var(--gray);
+    line-height: 1.6;
+    margin-bottom: 40px;
+    font-size: 1.05rem;
+}
+
+.contact-cards {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.contact-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    background-color: rgba(11, 25, 44, 0.6);
+    padding: 20px;
+    border-radius: 12px;
+    border: 1px solid rgba(160, 170, 178, 0.2);
+    text-decoration: none;
+    color: var(--white);
+    transition: all 0.3s ease;
+}
+
+.link-card:hover {
+    border-color: var(--electric-blue);
+    background-color: var(--deep-navy);
+    transform: translateX(10px);
+    box-shadow: -5px 5px 15px rgba(0, 229, 255, 0.1);
+}
+
+.contact-icon {
+    font-size: 2rem;
+    background-color: rgba(0, 229, 255, 0.1);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    border: 1px dashed var(--electric-blue);
+}
+
+.contact-card h4 {
+    margin: 0 0 5px 0;
+    color: var(--electric-blue);
+    font-size: 1.1rem;
+}
+
+.contact-card p {
+    margin: 0;
+    color: var(--gray);
+    font-size: 0.95rem;
+}
+
+/* Form Styling */
+.cyber-form {
+    background-color: var(--deep-navy);
+    padding: 40px;
+    border-radius: 12px;
+    border: 2px solid var(--gray);
+    box-shadow: 0 15px 35px rgba(11, 25, 44, 0.2);
+}
+
+.form-group {
+    margin-bottom: 25px;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    color: var(--electric-blue);
+    margin-bottom: 8px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 1px;
+}
+
+.form-group input, .form-group textarea {
+    background-color: rgba(248, 249, 250, 0.05);
+    border: 1px solid rgba(160, 170, 178, 0.3);
+    border-radius: 6px;
+    padding: 15px;
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus, .form-group textarea:focus {
+    outline: none;
+    border-color: var(--electric-blue);
+    background-color: rgba(11, 25, 44, 0.9);
+    box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+}
+
+.submit-btn {
+    width: 100%;
+    background-color: transparent;
+    color: var(--electric-blue);
+    border: 2px solid var(--electric-blue);
+    padding: 15px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.submit-btn:hover {
+    background-color: var(--electric-blue);
+    color: var(--deep-navy);
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}

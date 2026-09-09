@@ -681,6 +681,24 @@ body::after {
     font-style: italic;
 }
 
+/* --- Skill Groups --- */
+.skill-group {
+    margin-bottom: 30px;
+}
+
+.skill-group:last-child {
+    margin-bottom: 0;
+}
+
+.skill-group-title {
+    color: var(--electric-blue);
+    font-size: 1rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 15px 0;
+}
+
 /* --- Hover Effect Skill Bars --- */
 .skill-category {
     margin-bottom: 35px; /* Increased from 30px to give the new items more breathing room */
@@ -797,6 +815,11 @@ body::after {
     border-radius: 20px;
     font-size: 0.8rem;
     font-weight: 700;
+}
+
+.cert-status--pending {
+    background-color: rgba(160, 170, 178, 0.15);
+    color: var(--gray);
 }
 
 .scroll-hint {

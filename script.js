@@ -1,6 +1,6 @@
 // --- Typing Effect Logic ---
 // The text we want to type out
-const textToType = "In an era of evolving digital threats, I don't just troubleshoot systems. I fortify them."; // [cite: 7]
+const textToType = "In an age of overwhelming data, I don't just collect numbers. I turn them into decisions.";
 
 // The speed of the typing (in milliseconds per character)
 const typingSpeed = 40; 

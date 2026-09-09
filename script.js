@@ -9,7 +9,8 @@ let i = 0;
 
 function typeWriterEffect() {
     const targetElement = document.getElementById("typewriter-hook");
-    
+    if (!targetElement) return;
+
     // Check if there are still characters left to type
     if (i < textToType.length) {
         targetElement.innerHTML += textToType.charAt(i);
@@ -22,6 +23,7 @@ function typeWriterEffect() {
 // Trigger the animation as soon as the window loads
 window.onload = () => {
     typeWriterEffect();
+    initContactForm();
 };
 
 
@@ -44,3 +46,43 @@ function pullFile(folderElement, destinationUrl) {
     }, 600);
 }
 
+
+// --- Contact Form Handling ---
+function initContactForm() {
+    const form = document.getElementById('contact-form');
+    if (!form) return;
+
+    const statusEl = document.getElementById('form-status');
+    const submitBtn = form.querySelector('.submit-btn');
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Transmitting...';
+
+        try {
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: new FormData(form),
+                headers: { 'Accept': 'application/json' }
+            });
+
+            if (response.ok) {
+                form.reset();
+                statusEl.textContent = "Message transmitted successfully. I'll be in touch soon.";
+                statusEl.className = 'form-status form-status--success';
+            } else {
+                statusEl.textContent = 'Transmission failed. Please try again or email me directly.';
+                statusEl.className = 'form-status form-status--error';
+            }
+        } catch (error) {
+            statusEl.textContent = 'Transmission failed. Please check your connection and try again.';
+            statusEl.className = 'form-status form-status--error';
+        }
+
+        statusEl.hidden = false;
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'Transmit Message';
+    });
+}

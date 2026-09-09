@@ -61,8 +61,8 @@
             </section>
 
             <section class="contact-form-section">
-                <form action="YOUR_FORMSPREE_ENDPOINT" method="POST" class="cyber-form">
-                    
+                <form id="contact-form" action="https://formspree.io/f/meaqpvnq" method="POST" class="cyber-form">
+
                     <div class="form-group">
                         <label for="name">Name / Alias</label>
                         <input type="text" id="name" name="name" required placeholder="Enter your name">
@@ -83,6 +83,8 @@
                         <textarea id="message" name="message" rows="5" required placeholder="Type your message here..."></textarea>
                     </div>
 
+                    <p id="form-status" class="form-status" hidden></p>
+
                     <button type="submit" class="submit-btn">Transmit Message</button>
                 </form>
             </section>
@@ -90,5 +92,6 @@
         </div>
     </main>
 
+    <script src="script.js"></script>
 </body>
 </html>

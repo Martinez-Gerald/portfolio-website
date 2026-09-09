@@ -574,6 +574,10 @@ body::after {
     cursor: pointer;
 }
 
+.portfolio-card--static:hover {
+    cursor: default;
+}
+
 .portfolio-image-container {
     width: 100%;
     height: 220px;
@@ -970,4 +974,36 @@ body::after {
     background-color: var(--electric-blue);
     color: var(--deep-navy);
     box-shadow: 0 0 20px rgba(0, 229, 255, 0.4);
+}
+
+.submit-btn:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.submit-btn:disabled:hover {
+    background-color: transparent;
+    color: var(--electric-blue);
+    box-shadow: none;
+}
+
+/* Form Submission Status */
+.form-status {
+    padding: 14px 18px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    margin: 0 0 20px 0;
+}
+
+.form-status--success {
+    background-color: rgba(0, 229, 255, 0.08);
+    color: var(--electric-blue);
+    border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.form-status--error {
+    background-color: rgba(255, 90, 90, 0.08);
+    color: #FF5B5B;
+    border: 1px solid rgba(255, 90, 90, 0.3);
 }
